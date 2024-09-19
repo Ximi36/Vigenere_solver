@@ -83,7 +83,7 @@ def compare_freq(text):
 # Testuje różne długości klucza i różne przesunięcia dla każdej litery, aby znaleźć klucz najlepiej pasujący do częstotliwości liter w języku polskim.
 def solve_vigenere(text, a_is_zero=True):
     best_keys = []  # Lista przechowująca najlepsze klucze
-    key_min_size = 2  # Minimalna długość klucza, którą sprawdzamy
+    key_min_size = 3  # Minimalna długość klucza, którą sprawdzamy
     key_max_size = 10  # Maksymalna długość klucza, którą sprawdzamy
 
     # Przefiltrowanie tekstu, aby pozostały tylko litery i spacje ('{')
@@ -137,5 +137,10 @@ print("*" * 80)
 # Próbujemy złamać szyfr
 for key in reversed(solve_vigenere(CIPHERTEXT)):
     print("")
-    print("Znaleziony klucz:", antyspace(key))  # Wyświetlamy znaleziony klucz (zamieniając '{' z powrotem na spacje)
+    print("Znaleziony klucz:", antyspace(key))  # Wyświetlamy znaleziony klucz, zamieniając '{' na spacje.
+    print("Rozwiązanie:")
+    print("=" * 80)
 
+    # Odszyfrowujemy tekst i wyświetlamy go w czytelnej formie.
+    print(antyspace(textwrap.fill(vigenere_decrypt(CIPHERTEXT, key))))
+    print("=" * 80)
