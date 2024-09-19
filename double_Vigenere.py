@@ -91,7 +91,7 @@ def main():
             pierwszeSlowo = polskie_na_standardowe(pierwszeSlowo)
             for drugieSlowo in drugieSlowa:
                 drugieSlowo = polskie_na_standardowe(drugieSlowo)
-                zakodowanyTekst = kodowannmnlwanaie_vigenere(pierwszeSlowo, drugieSlowo)
+                zakodowanyTekst = kodowanie_vigenere(pierwszeSlowo, drugieSlowo)
                 if zakodowanyTekst == klucz.lower():
                     znalezionoDopasowanie = True
                     print("Znaleziono:", pierwszeSlowo, "+", drugieSlowo, "=", zakodowanyTekst)
